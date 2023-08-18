@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <titile>Reduce function</titile>
+    </head>
+    <body>
+        <script>
+            var xhr=new XMLHttpRequest();
+            var method='GET';
+            var url="https://restcountries.com/v3.1/all";
+            xhr.open(method,url);
+            xhr.onload=function()
+            {
+               // if(xhr.status===200)
+               // {
+                var response=JSON.parse(this.responseText);
+                console.log(response.length);
+                var population=response.reduce((acc, cur)=>
+                {
+                        return acc+cur.population;
+
+                })
+                        console.log("Total of Population: ",population);
+    
+            }
+            xhr.send();
+        </script>
+    </body>
+</html>
